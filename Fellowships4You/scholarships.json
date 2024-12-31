@@ -18,11 +18,43 @@
     },
     {
       "name": "🇬🇧 Gates-Cambridge Scholarship",
-      "description": "The Gates Cambridge Scholarship supports one to three years of post-baccalaureate study in any field at the University of Cambridge.",
+      "description": "The Gates Cambridge Scholarship supports one to three years of post-baccalaureate study in any field at the University of Cambridge. Students must apply for admission as a postgraduate student to the University of Cambridge and a Gates Cambridge Scholarship at the same time, with one application form, via the Graduate Admissions Office. Applicants must demonstrate exceptional academic achievement, potential for scholarly development, and a commitment to use the benefits of their education for the common good. Citizens from any country other than the UK are eligible.",
       "url": "https://www.gatescambridge.org/",
       "dueDate": "10/10/2025",
       "value": 1,
       "tags": ["united_kingdom"]
+    },
+    {
+      "name": "🇨🇧 Churchill Scholarship",
+      "description": "The Churchill Scholarship provides around $60,000 for a year of graduate study in engineering, mathematics, or science at Churchill College, Cambridge University, plus a $1500 travel allowance and the possibility of a $2000 Special Research Grant, approved in advance by the Foundation, to cover research expenses. Fifteen scholarships are awarded annually.",
+      "url": "https://www.churchillscholarship.org/the-scholarship#Apply",
+      "dueDate": "11/01/2025",
+      "value": 1,
+      "tags": ["united_kingdom", "stem"]
+    },
+    {
+      "name": "🇮🇪 Mitchell Scholarship",
+      "description": "The George J. Mitchell Scholarship supports one year of graduate study in any field at one of the eleven institutions of higher learning on the island of Ireland. This includes the seven universities in the Republic of Ireland, two institutes in Dublin, and two universities in Northern Ireland (Queen's University Belfast and the Ulster University). Up to 12 Scholars are selected each year.",
+      "url": "http://www.us-irelandalliance.org/mitchellscholarship",
+      "dueDate": "09/15/2025",
+      "value": 1,
+      "tags": ["ireland"]
+    },
+    {
+      "name": "🇺🇸 Stanford Knight-Henessy Scholarship",
+      "description": "The Knight-Hennessy scholarship offers up to three years of funding for a graduate degree in any of Stanford University's 125 degree programs, from PhD's in education, engineering, the humanities, and the natural sciences to professional degrees such as the MS, JD, MD, MBA, or MFA.",
+      "url": "https://knight-hennessy.stanford.edu/",
+      "dueDate": "10/12/2025",
+      "value": 1,
+      "tags": ["united_states"]
+    },
+    {
+      "name": "🇺🇸 Soros Fellowship for New Americans",
+      "description": "Up to two years of full-time graduate study in any field for new citizens or first-generation children of non-US citizens.",
+      "url": "https://www.pdsoros.org/",
+      "dueDate": "10/15/2025",
+      "value": 1,
+      "tags": ["united_states", "social_justice"]
     },
     {
       "name": "🇨🇳 Schwarzman Scholarship",
