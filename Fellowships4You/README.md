@@ -86,9 +86,6 @@ The app uses a JSON data structure for scholarships with the following fields:
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgments
 
