@@ -159,13 +159,6 @@ struct ScholarshipDetailView: View {
                     
                     HStack(spacing: 20) {
                         VStack {
-                            Text("🌟")
-                                .font(.title)
-                            Text("Featured")
-                                .font(.caption)
-                        }
-                        
-                        VStack {
                             Text("📚")
                                 .font(.title)
                             Text("Academic")
@@ -176,6 +169,13 @@ struct ScholarshipDetailView: View {
                             Text("🎓")
                                 .font(.title)
                             Text("Graduate")
+                                .font(.caption)
+                        }
+                        
+                        VStack {
+                            Text("🌍")
+                                .font(.title)
+                            Text("International")
                                 .font(.caption)
                         }
                     }
@@ -294,46 +294,43 @@ struct ScholarshipRow: View {
     }
     
     var body: some View {
-        NavigationLink(destination: ScholarshipDetailView(scholarship: scholarship, store: store)) {
-            VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    Text(scholarship.name)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Text("Due: \(formatDate(scholarship.dueDate))")
-                        .font(.caption)
-                        .foregroundColor(.blue)
-                }
-                
-                Text(scholarship.description)
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                    .lineLimit(3)
-                
-                HStack {
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                    Text("FEATURED")
-                        .font(.caption)
-                        .fontWeight(.bold)
-                    
-                    Spacer()
-                    
-                    if store.isBookmarked(scholarship) {
-                        Image(systemName: "bookmark.fill")
+        HStack(spacing: 0) {
+            NavigationLink(destination: ScholarshipDetailView(scholarship: scholarship, store: store)) {
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        Text(scholarship.name)
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Spacer()
+                        Text("Due: \(formatDate(scholarship.dueDate))")
+                            .font(.caption)
                             .foregroundColor(.blue)
                     }
+                    
+                    Text(scholarship.description)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                        .lineLimit(3)
                 }
             }
-            .padding()
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color(.systemBackground))
-                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-            )
-            .padding(.horizontal)
+            
+            // Bookmark button
+            Button(action: {
+                store.toggleBookmark(for: scholarship)
+            }) {
+                Image(systemName: store.isBookmarked(scholarship) ? "bookmark.fill" : "bookmark")
+                    .foregroundColor(.blue)
+                    .frame(width: 44, height: 44)
+            }
+            .buttonStyle(PlainButtonStyle())
         }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color(.systemBackground))
+                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+        )
+        .padding(.horizontal)
     }
 }
 
