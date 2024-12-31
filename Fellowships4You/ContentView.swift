@@ -27,18 +27,27 @@ struct ScholarshipData: Codable {
 
 class ScholarshipStore: ObservableObject {
     @Published var scholarships: [Scholarship] = []
-    @Published var bookmarkedIds: Set<UUID> = Set(UserDefaults.standard.array(forKey: "BookmarkedScholarships") as? [String] ?? []).compactMap { UUID(uuidString: $0) }
+    @Published private(set) var bookmarkedIds: Set<UUID> = []
     
     init() {
         loadScholarships()
+        loadBookmarks()
+    }
+    
+    private func loadBookmarks() {
+        if let savedBookmarks = UserDefaults.standard.array(forKey: "BookmarkedScholarships") as? [String] {
+            bookmarkedIds = Set(savedBookmarks.compactMap { UUID(uuidString: $0) })
+        }
     }
     
     func toggleBookmark(for scholarship: Scholarship) {
+        var newBookmarks = bookmarkedIds
         if bookmarkedIds.contains(scholarship.id) {
-            bookmarkedIds.remove(scholarship.id)
+            newBookmarks.remove(scholarship.id)
         } else {
-            bookmarkedIds.insert(scholarship.id)
+            newBookmarks.insert(scholarship.id)
         }
+        bookmarkedIds = newBookmarks
         // Save to UserDefaults
         UserDefaults.standard.set(Array(bookmarkedIds).map { $0.uuidString }, forKey: "BookmarkedScholarships")
     }
