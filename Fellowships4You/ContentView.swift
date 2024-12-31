@@ -27,9 +27,24 @@ struct ScholarshipData: Codable {
 
 class ScholarshipStore: ObservableObject {
     @Published var scholarships: [Scholarship] = []
+    @Published var bookmarkedIds: Set<UUID> = Set(UserDefaults.standard.array(forKey: "BookmarkedScholarships") as? [String] ?? []).compactMap { UUID(uuidString: $0) }
     
     init() {
         loadScholarships()
+    }
+    
+    func toggleBookmark(for scholarship: Scholarship) {
+        if bookmarkedIds.contains(scholarship.id) {
+            bookmarkedIds.remove(scholarship.id)
+        } else {
+            bookmarkedIds.insert(scholarship.id)
+        }
+        // Save to UserDefaults
+        UserDefaults.standard.set(Array(bookmarkedIds).map { $0.uuidString }, forKey: "BookmarkedScholarships")
+    }
+    
+    func isBookmarked(_ scholarship: Scholarship) -> Bool {
+        bookmarkedIds.contains(scholarship.id)
     }
     
     private func loadScholarships() {
@@ -64,12 +79,262 @@ class ScholarshipStore: ObservableObject {
     }
 }
 
+struct ScholarshipDetailView: View {
+    let scholarship: Scholarship
+    @ObservedObject var store: ScholarshipStore
+    @Environment(\.openURL) private var openURL
+    
+    private var formattedTags: [String] {
+        scholarship.tags.compactMap { tag in
+            ContentView.availableTags[tag]
+        }
+    }
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                // Header
+                VStack(alignment: .leading, spacing: 12) {
+                    HStack {
+                        Text(scholarship.name)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            store.toggleBookmark(for: scholarship)
+                        }) {
+                            Image(systemName: store.isBookmarked(scholarship) ? "bookmark.fill" : "bookmark")
+                                .font(.title2)
+                                .foregroundColor(.blue)
+                        }
+                    }
+                    
+                    HStack {
+                        Image(systemName: "calendar")
+                            .foregroundColor(.blue)
+                        Text("Due: \(formatDate(scholarship.dueDate))")
+                            .foregroundColor(.blue)
+                    }
+                }
+                
+                // Description
+                Text(scholarship.description)
+                    .font(.body)
+                    .foregroundColor(.secondary)
+                
+                // Tags
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Categories")
+                        .font(.headline)
+                    
+                    FlowLayout(spacing: 8) {
+                        ForEach(formattedTags, id: \.self) { tag in
+                            Text(tag)
+                                .font(.caption)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 6)
+                                .background(
+                                    Capsule()
+                                        .fill(Color(.systemGray6))
+                                )
+                        }
+                    }
+                }
+                
+                // Stats
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Quick Facts")
+                        .font(.headline)
+                    
+                    HStack(spacing: 20) {
+                        VStack {
+                            Text("🌟")
+                                .font(.title)
+                            Text("Featured")
+                                .font(.caption)
+                        }
+                        
+                        VStack {
+                            Text("📚")
+                                .font(.title)
+                            Text("Academic")
+                                .font(.caption)
+                        }
+                        
+                        VStack {
+                            Text("🎓")
+                                .font(.title)
+                            Text("Graduate")
+                                .font(.caption)
+                        }
+                    }
+                }
+                
+                // Apply Button
+                Button(action: {
+                    if let url = URL(string: scholarship.url) {
+                        openURL(url)
+                    }
+                }) {
+                    HStack {
+                        Text("Apply Now")
+                        Image(systemName: "arrow.right")
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+                .padding(.top)
+            }
+            .padding()
+        }
+        .navigationBarTitleDisplayMode(.inline)
+    }
+    
+    private func formatDate(_ dateString: String) -> String {
+        let components = dateString.split(separator: "/")
+        guard components.count >= 2,
+              let month = Int(components[0]),
+              let day = Int(components[1]) else {
+            return dateString
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MMM"
+        let date = Calendar.current.date(from: DateComponents(month: month))!
+        let monthStr = dateFormatter.string(from: date)
+        
+        return "\(monthStr). \(day)"
+    }
+}
+
+struct FlowLayout: Layout {
+    var spacing: CGFloat = 8
+    
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let rows = computeRows(proposal: proposal, subviews: subviews)
+        return rows.size
+    }
+    
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let rows = computeRows(proposal: proposal, subviews: subviews)
+        var y = bounds.minY
+        for row in rows.rows {
+            var x = bounds.minX
+            for view in row {
+                let size = view.sizeThatFits(.unspecified)
+                view.place(at: CGPoint(x: x, y: y), proposal: .unspecified)
+                x += size.width + spacing
+            }
+            y += row.first?.sizeThatFits(.unspecified).height ?? 0 + spacing
+        }
+    }
+    
+    private func computeRows(proposal: ProposedViewSize, subviews: Subviews) -> (rows: [[LayoutSubviews.Element]], size: CGSize) {
+        var rows: [[LayoutSubviews.Element]] = [[]]
+        var currentRow = 0
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        var maxWidth: CGFloat = 0
+        
+        for view in subviews {
+            let size = view.sizeThatFits(.unspecified)
+            
+            if x + size.width > (proposal.width ?? .infinity) && !rows[currentRow].isEmpty {
+                rows.append([])
+                currentRow += 1
+                x = size.width + spacing
+                y += size.height + spacing
+            } else {
+                x += size.width + spacing
+            }
+            
+            maxWidth = max(maxWidth, x)
+            rows[currentRow].append(view)
+        }
+        
+        let height = y + (rows.last?.first?.sizeThatFits(.unspecified).height ?? 0)
+        return (rows, CGSize(width: maxWidth - spacing, height: height))
+    }
+}
+
+struct ScholarshipRow: View {
+    let scholarship: Scholarship
+    @ObservedObject var store: ScholarshipStore
+    
+    private func formatDate(_ dateString: String) -> String {
+        let components = dateString.split(separator: "/")
+        guard components.count >= 2,
+              let month = Int(components[0]),
+              let day = Int(components[1]) else {
+            return dateString
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MMM"
+        let date = Calendar.current.date(from: DateComponents(month: month))!
+        let monthStr = dateFormatter.string(from: date)
+        
+        return "\(monthStr). \(day)"
+    }
+    
+    var body: some View {
+        NavigationLink(destination: ScholarshipDetailView(scholarship: scholarship, store: store)) {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Text(scholarship.name)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Text("Due: \(formatDate(scholarship.dueDate))")
+                        .font(.caption)
+                        .foregroundColor(.blue)
+                }
+                
+                Text(scholarship.description)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .lineLimit(3)
+                
+                HStack {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
+                    Text("FEATURED")
+                        .font(.caption)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    if store.isBookmarked(scholarship) {
+                        Image(systemName: "bookmark.fill")
+                            .foregroundColor(.blue)
+                    }
+                }
+            }
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color(.systemBackground))
+                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+            )
+            .padding(.horizontal)
+        }
+    }
+}
+
 struct ContentView: View {
     @StateObject private var store = ScholarshipStore()
     @State private var selectedTags: Set<String> = []
     @State private var showFilters = false
+    @State private var showBookmarksOnly = false
     
-    let availableTags = [
+    static let availableTags = [
         "united_kingdom": "🇬🇧 Europe",
         "united_states": "🇺🇸 United States",
         "china": "🇨🇳 China",
@@ -94,10 +359,17 @@ struct ContentView: View {
     ]
     
     var filteredScholarships: [Scholarship] {
-        if selectedTags.isEmpty {
-            return store.scholarships
+        var scholarships = store.scholarships
+        
+        if showBookmarksOnly {
+            scholarships = scholarships.filter { store.isBookmarked($0) }
         }
-        return store.scholarships.filter { scholarship in
+        
+        if selectedTags.isEmpty {
+            return scholarships
+        }
+        
+        return scholarships.filter { scholarship in
             !Set(scholarship.tags).isDisjoint(with: selectedTags)
         }
     }
@@ -109,20 +381,31 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
-                    // Filter Button
-                    Button(action: { showFilters.toggle() }) {
-                        HStack {
-                            Text("Filters")
-                                .font(.headline)
-                            Spacer()
-                            Image(systemName: "line.3.horizontal.decrease.circle")
-                                .foregroundColor(.blue)
+                    HStack {
+                        // Filter Button
+                        Button(action: { showFilters.toggle() }) {
+                            HStack {
+                                Text("Filters")
+                                    .font(.headline)
+                                Spacer()
+                                Image(systemName: "line.3.horizontal.decrease.circle")
+                                    .foregroundColor(.blue)
+                            }
+                            .padding()
+                            .background(Color(.systemBackground))
+                            .cornerRadius(10)
                         }
-                        .padding()
-                        .background(Color(.systemBackground))
-                        .cornerRadius(10)
-                        .padding()
+                        
+                        // Bookmarks Toggle
+                        Button(action: { showBookmarksOnly.toggle() }) {
+                            Image(systemName: showBookmarksOnly ? "bookmark.fill" : "bookmark")
+                                .foregroundColor(.blue)
+                                .padding()
+                                .background(Color(.systemBackground))
+                                .cornerRadius(10)
+                        }
                     }
+                    .padding()
                     
                     // Selected Filters
                     if !selectedTags.isEmpty {
@@ -130,7 +413,7 @@ struct ContentView: View {
                             HStack {
                                 ForEach(Array(selectedTags), id: \.self) { tag in
                                     HStack {
-                                        Text(availableTags[tag] ?? tag)
+                                        Text(Self.availableTags[tag] ?? tag)
                                             .font(.caption)
                                         Button(action: {
                                             selectedTags.remove(tag)
@@ -156,7 +439,7 @@ struct ContentView: View {
                     ScrollView {
                         LazyVStack(spacing: 16) {
                             ForEach(filteredScholarships) { scholarship in
-                                ScholarshipRow(scholarship: scholarship)
+                                ScholarshipRow(scholarship: scholarship, store: store)
                             }
                         }
                         .padding(.vertical)
@@ -165,76 +448,9 @@ struct ContentView: View {
             }
             .navigationTitle("Scholarships")
             .sheet(isPresented: $showFilters) {
-                FilterView(selectedTags: $selectedTags, availableTags: availableTags)
+                FilterView(selectedTags: $selectedTags, availableTags: Self.availableTags)
             }
         }
-    }
-}
-
-struct ScholarshipRow: View {
-    let scholarship: Scholarship
-    
-    private func formatDate(_ dateString: String) -> String {
-        // Convert from MM/DD/YYYY to MMM. DD
-        let components = dateString.split(separator: "/")
-        guard components.count >= 2,
-              let month = Int(components[0]),
-              let day = Int(components[1]) else {
-            return dateString
-        }
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US")
-        
-        // Get month name
-        dateFormatter.dateFormat = "MMM"
-        let date = Calendar.current.date(from: DateComponents(month: month))!
-        let monthStr = dateFormatter.string(from: date)
-        
-        return "\(monthStr). \(day)"
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Text(scholarship.name)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                Spacer()
-                Text("Due: \(formatDate(scholarship.dueDate))")
-                    .font(.caption)
-                    .foregroundColor(.blue)
-            }
-            
-            Text(scholarship.description)
-                .font(.subheadline)
-                .foregroundColor(.secondary)
-                .lineLimit(3)
-            
-            HStack {
-                Image(systemName: "star.fill")
-                    .foregroundColor(.yellow)
-                Text("FEATURED")
-                    .font(.caption)
-                    .fontWeight(.bold)
-                
-                Spacer()
-                
-                Link(destination: URL(string: scholarship.url)!) {
-                    Text("Learn More")
-                        .font(.caption)
-                        .fontWeight(.medium)
-                        .foregroundColor(.blue)
-                }
-            }
-        }
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(Color(.systemBackground))
-                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-        )
-        .padding(.horizontal)
     }
 }
 
