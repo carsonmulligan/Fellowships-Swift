@@ -1,0 +1,236 @@
+{
+    "scholarships": [
+      {
+        "name": "🇬🇧 Rhodes Scholarship",
+        "description": "The Rhodes Scholarships are the oldest and most celebrated international fellowship awards in the world. Each year 32 young students from the U.S. are selected as Rhodes Scholars. The Rhodes Scholarship funds two years of graduate study at Oxford University in most fields (excluding professional degree programs such as law and medicine).",
+        "url": "http://www.rhodesscholar.org/",
+        "dueDate": "10/01/2025",
+        "value": 1,
+        "tags": ["united_kingdom"]
+      },
+      {
+        "name": "🇬🇧 Marshall Scholarship",
+        "description": "The Marshall Scholarship funds one or two years of graduate study at a wide range of institutions in the United Kingdom. Most fields of study are supported. Professional degrees, such as those in law, business, and medicine are excluded, as are second baccalaureate degrees.",
+        "url": "http://www.marshallscholarship.org/",
+        "dueDate": "09/15/2025",
+        "value": 1,
+        "tags": ["united_kingdom"]
+      },
+      {
+        "name": "🇬🇧 Gates-Cambridge Scholarship",
+        "description": "The Gates Cambridge Scholarship supports one to three years of post-baccalaureate study in any field at the University of Cambridge. Students must apply for admission as a postgraduate student to the University of Cambridge and a Gates Cambridge Scholarship at the same time, with one application form, via the Graduate Admissions Office. Applicants must demonstrate exceptional academic achievement, potential for scholarly development, and a commitment to use the benefits of their education for the common good. Citizens from any country other than the UK are eligible.",
+        "url": "https://www.gatescambridge.org/",
+        "dueDate": "10/10/2025",
+        "value": 1,
+        "tags": ["united_kingdom"]
+      },
+      {
+        "name": "🇨🇧 Churchill Scholarship",
+        "description": "The Churchill Scholarship provides around $60,000 for a year of graduate study in engineering, mathematics, or science at Churchill College, Cambridge University, plus a $1500 travel allowance and the possibility of a $2000 Special Research Grant, approved in advance by the Foundation, to cover research expenses. Fifteen scholarships are awarded annually.",
+        "url": "https://www.churchillscholarship.org/the-scholarship#Apply",
+        "dueDate": "11/01/2025",
+        "value": 1,
+        "tags": ["united_kingdom", "stem"]
+      },
+      {
+        "name": "🇮🇪 Mitchell Scholarship",
+        "description": "The George J. Mitchell Scholarship supports one year of graduate study in any field at one of the eleven institutions of higher learning on the island of Ireland. This includes the seven universities in the Republic of Ireland, two institutes in Dublin, and two universities in Northern Ireland (Queen's University Belfast and the Ulster University). Up to 12 Scholars are selected each year.",
+        "url": "http://www.us-irelandalliance.org/mitchellscholarship",
+        "dueDate": "09/15/2025",
+        "value": 1,
+        "tags": ["ireland"]
+      },
+      {
+        "name": "🇺🇸 Stanford Knight-Henessy Scholarship",
+        "description": "The Knight-Hennessy scholarship offers up to three years of funding for a graduate degree in any of Stanford University's 125 degree programs, from PhD's in education, engineering, the humanities, and the natural sciences to professional degrees such as the MS, JD, MD, MBA, or MFA.",
+        "url": "https://knight-hennessy.stanford.edu/",
+        "dueDate": "10/12/2025",
+        "value": 1,
+        "tags": ["united_states"]
+      },
+      {
+        "name": "🇺🇸 Soros Fellowship for New Americans",
+        "description": "Up to two years of full-time graduate study in any field for new citizens or first-generation children of non-US citizens.",
+        "url": "https://www.pdsoros.org/",
+        "dueDate": "10/15/2025",
+        "value": 1,
+        "tags": ["united_states", "social_justice"]
+      },
+      {
+        "name": "🇨🇳 Schwarzman Scholarship",
+        "description": "Schwarzman Scholars is a highly-selective, fully-funded Master's degree in Global Affairs program based at the distinguished Tsinghua University in Beijing.",
+        "url": "https://connect.schwarzmanscholars.org/apply/",
+        "dueDate": "09/20/2025",
+        "value": 1,
+        "tags": ["china"]
+      },
+      {
+        "name": "🇨🇳 Yenching Academy Scholarship",
+        "description": "Provides funding to pursue a two-year master's degree in China Studies from Peking University. Applicants from diverse fields come together to study ancient, modern, and contemporary China in an English-taught program.",
+        "url": "https://yenchingacademy.pku.edu.cn/",
+        "dueDate": "12/01/2025",
+        "value": 1,
+        "tags": ["china"]
+      },
+      {
+        "name": "🇯🇵 Watanabe Study Abroad Scholarship",
+        "description": "Scholarship provides financial assistance up to the full cost of attendance for study abroad in Japan to undergraduates and graduate students in need of financial support.",
+        "url": "https://www.usjapancouncil.org/watanabe-scholarship/",
+        "dueDate": "02/15/2025",
+        "value": 1,
+        "tags": ["japan"]
+      },
+      {
+        "name": "🇺🇸 🎖 Harry S. Truman Scholarship",
+        "description": "The Harry S. Truman Scholarship provides funding for graduate school as preparation for a career in government or public service. Truman Scholars receive up to $30,000 for graduate studies. In addition, they participate in leadership development programs and have special opportunities for internships and employment with the federal government. About 60 scholarships are awarded each year.",
+        "url": "http://www.truman.gov/",
+        "dueDate": "01/15/2025",
+        "value": 1,
+        "tags": ["united_states"]
+      },
+      {
+        "name": "🇺🇸 James Madison Fellowship",
+        "description": "The James Madison Graduate Fellowship Program is a federally-endowed fellowship program designed to strengthen instruction about the U.S. Constitution at the secondary school level.",
+        "url": "http://www.jamesmadison.gov/",
+        "dueDate": "03/01/2025",
+        "value": 1,
+        "tags": ["united_states"]
+      },
+      {
+        "name": "🇺🇸 Beinecke Scholarship",
+        "description": "The Beinecke Scholarship enables students in the traditional liberal arts to pursue graduate school opportunities they may not otherwise have been able to pursue.",
+        "url": "https://beineckescholarship.org/",
+        "dueDate": "02/08/2025",
+        "value": 1,
+        "tags": ["united_states"]
+      },
+      {
+        "name": "🌏 Luce Scholarship",
+        "description": "The award provides for a year's experience in Asia in an internship arranged for each Scholar on the basis of his/her specific interest, background, qualifications, and experience.",
+        "url": "https://www.hluce.org/programs/luce-scholars/",
+        "dueDate": "10/15/2025",
+        "value": 1,
+        "tags": ["asia"]
+      },
+      {
+        "name": "🇺🇸 🌐 Thomas Pickering Fellowship",
+        "description": "Full-ride Masters program with a track to the United States Foreign Diplomatic Service",
+        "url": "https://pickeringfellowship.org/",
+        "dueDate": "09/15/2025",
+        "value": 1,
+        "tags": ["united_states", "global"]
+      },
+      {
+        "name": "🌐 Fulbright Scholarship",
+        "description": "The Fulbright U.S. Student Program provides grants for individually designed study/research projects or for English Teaching Assistantships.",
+        "url": "http://us.fulbrightonline.org/",
+        "dueDate": "10/10/2025",
+        "value": 1,
+        "tags": ["global"]
+      },
+      {
+        "name": "🇺🇸 🧑‍🔬 Barry M. Goldwater Scholarship",
+        "description": "The Goldwater Scholarship was established to foster and encourage excellence in the natural sciences, engineering, and mathematics in the U.S.",
+        "url": "https://goldwater.scholarsapply.org/",
+        "dueDate": "01/15/2025",
+        "value": 1,
+        "tags": ["united_states", "stem"]
+      },
+      {
+        "name": "🌐 🎵 Fulbright-mtvU awards",
+        "description": "Research on international music culture",
+        "url": "http://us.fulbrightonline.org/fulbright-mtvu-awards",
+        "dueDate": "03/01/2025",
+        "value": 1,
+        "tags": ["global", "music"]
+      },
+      {
+        "name": "🇺🇸 🧑‍🔬 💰 Hertz Fellowship",
+        "description": "The Hertz Foundation Graduate Fellowship is designed to foster the graduate-level studies of excellent young men and women who seem likely to become leaders in scientific and technological advances.",
+        "url": "https://www.hertzfoundation.org/the-fellowship/faq/",
+        "dueDate": "10/27/2025",
+        "value": 1,
+        "tags": ["united_states", "stem", "financial"]
+      },
+      {
+        "name": "🇺🇸 🧑‍🔬 🗽 Ford Foundation Fellowship",
+        "description": "Diversity partnership with National Academy of Sciences for graduate study in STEM",
+        "url": "https://sites.nationalacademies.org/PGA/FordFellowships/index.htm",
+        "dueDate": "12/08/2025",
+        "value": 1,
+        "tags": ["united_states", "stem", "social_justice"]
+      },
+      {
+        "name": "🇺🇸 🧑‍🔬 National Science Foundation Graduate Research Fellowship Program",
+        "description": "Up to three years of support for STEM graduate education",
+        "url": "https://nsfgrfp.org/applicants/",
+        "dueDate": "10/10/2025",
+        "value": 1,
+        "tags": ["united_states", "stem"]
+      },
+      {
+        "name": "🇺🇸 🧑‍🔬 ⚕️ National Institutes of Health Undergraduate Scholarship Program",
+        "description": "Up to $20,000 in scholarship support per year to eligible undergraduates who are pursuing degrees in fields related to biomedical research.",
+        "url": "https://www.training.nih.gov/programs/ugsp",
+        "dueDate": "03/15/2025",
+        "value": 1,
+        "tags": ["united_states", "stem", "medical"]
+      },
+      {
+        "name": "🌐 ✌️ Peace Corps",
+        "description": "Peace Corps offers volunteers a two-year, immersive experience living in a host country and working on a wide range of projects.",
+        "url": "https://www.peacecorps.gov/apply/",
+        "dueDate": "10/01/2025",
+        "value": 1,
+        "tags": ["global", "peace_studies"]
+      },
+      {
+        "name": "🌍 Princeton-in-Africa",
+        "description": "Provides funding for an opportunity to work in the field of development on the African continent for 12-months. Placements are made in up to 36 African countries.",
+        "url": "https://www.princetoninafrica.org/applicants/how-to-apply/",
+        "dueDate": "10/15/2025",
+        "value": 1,
+        "tags": ["africa"]
+      },
+      {
+        "name": "🌏 Princeton-in-Asia",
+        "description": "Provides funding for year-long placements in various organizations throughout 20 countries in Asia. Placements include teaching English at all grade levels and working with international and local nonprofit organizations that focus on global issues.",
+        "url": "https://piaweb.princeton.edu/apply-to-pia",
+        "dueDate": "11/01/2025",
+        "value": 1,
+        "tags": ["asia"]
+      },
+      {
+        "name": "🌎 Princeton-in-Latin America",
+        "description": "Provides funding for a year-long placement with nonprofit, public service, humanitarian, and government organizations in Latin America and the Caribbean.",
+        "url": "https://pila-princeton.org/how-apply",
+        "dueDate": "11/01/2025",
+        "value": 1,
+        "tags": ["latin_america"]
+      },
+      {
+        "name": "🇺🇸 🗽 ⚖️ Marshall-Motley Scholarship from NAACP",
+        "description": "Provides a full scholarship to law school for students who want to be civil rights attorneys in the South to advocate for Black communities seeking racial justice and equity.",
+        "url": "https://marshallmotleyscholars.org/",
+        "dueDate": "02/11/2025",
+        "value": 1,
+        "tags": ["united_states", "social_justice", "law"]
+      },
+      {
+        "name": "🇺🇸 🌐 🗣 Critical Language Scholarship",
+        "description": "Intensive overseas language programs sponsored by the U.S. Department of State.",
+        "url": "http://www.clscholarship.org/",
+        "dueDate": "11/01/2025",
+        "value": 1,
+        "tags": ["united_states", "global", "language"]
+      },
+      {
+        "name": "🇩🇪 🗣 Congress Bundestag Youth Exchange (CBYX) Program",
+        "description": "Provides one year of funding in Germany to cover two months of intensive German language study, one semester of classes in any academic field at a German university or school, and a three-month internship in your field.",
+        "url": "https://culturalvistas.org/programs/abroad/congress-bundestag-youth-exchange-young-professionals/",
+        "dueDate": "11/01/2025",
+        "value": 1,
+        "tags": ["germany", "language"]
+      }
+    ]
+  } 
