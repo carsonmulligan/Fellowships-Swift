@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Scholarship: Identifiable {
+struct Scholarship: Identifiable, Codable {
     let id = UUID()
     let name: String
     let description: String
@@ -15,6 +15,14 @@ struct Scholarship: Identifiable {
     let dueDate: String
     let value: Int
     let tags: [String]
+    
+    enum CodingKeys: String, CodingKey {
+        case name, description, url, dueDate, value, tags
+    }
+}
+
+struct ScholarshipData: Codable {
+    let scholarships: [Scholarship]
 }
 
 class ScholarshipStore: ObservableObject {
@@ -25,33 +33,33 @@ class ScholarshipStore: ObservableObject {
     }
     
     private func loadScholarships() {
-        // Load scholarships from seeds.rb data
+        guard let url = Bundle.main.url(forResource: "scholarships", withExtension: "json") else {
+            print("Error: Could not find scholarships.json in bundle")
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = JSONDecoder()
+            let scholarshipData = try decoder.decode(ScholarshipData.self, from: data)
+            self.scholarships = scholarshipData.scholarships
+        } catch {
+            print("Error loading scholarships: \(error)")
+            // Load fallback data
+            loadFallbackData()
+        }
+    }
+    
+    private func loadFallbackData() {
         scholarships = [
             Scholarship(
                 name: "🇬🇧 Rhodes Scholarship",
-                description: "The Rhodes Scholarships are the oldest and most celebrated international fellowship awards in the world. Each year 32 young students from the U.S. are selected as Rhodes Scholars.",
+                description: "The Rhodes Scholarships are the oldest and most celebrated international fellowship awards in the world.",
                 url: "http://www.rhodesscholar.org/",
                 dueDate: "10/01/2025",
                 value: 1,
                 tags: ["united_kingdom"]
-            ),
-            Scholarship(
-                name: "🇬🇧 Marshall Scholarship",
-                description: "The Marshall Scholarship funds one or two years of graduate study at a wide range of institutions in the United Kingdom.",
-                url: "http://www.marshallscholarship.org/",
-                dueDate: "09/15/2025",
-                value: 1,
-                tags: ["united_kingdom"]
-            ),
-            Scholarship(
-                name: "🇨🇳 Schwarzman Scholarship",
-                description: "Schwarzman Scholars is a highly-selective, fully-funded Master's degree in Global Affairs program based at the distinguished Tsinghua University in Beijing.",
-                url: "https://connect.schwarzmanscholars.org/apply/",
-                dueDate: "09/20/2025",
-                value: 1,
-                tags: ["china"]
-            ),
-            // Add more scholarships here...
+            )
         ]
     }
 }
