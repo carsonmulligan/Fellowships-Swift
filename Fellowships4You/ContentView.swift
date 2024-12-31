@@ -174,6 +174,26 @@ struct ContentView: View {
 struct ScholarshipRow: View {
     let scholarship: Scholarship
     
+    private func formatDate(_ dateString: String) -> String {
+        // Convert from MM/DD/YYYY to MMM. DD
+        let components = dateString.split(separator: "/")
+        guard components.count >= 2,
+              let month = Int(components[0]),
+              let day = Int(components[1]) else {
+            return dateString
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
+        // Get month name
+        dateFormatter.dateFormat = "MMM"
+        let date = Calendar.current.date(from: DateComponents(month: month))!
+        let monthStr = dateFormatter.string(from: date)
+        
+        return "\(monthStr). \(day)"
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -181,7 +201,7 @@ struct ScholarshipRow: View {
                     .font(.headline)
                     .foregroundColor(.primary)
                 Spacer()
-                Text("Due: \(scholarship.dueDate)")
+                Text("Due: \(formatDate(scholarship.dueDate))")
                     .font(.caption)
                     .foregroundColor(.blue)
             }
