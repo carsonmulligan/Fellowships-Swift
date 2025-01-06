@@ -622,8 +622,6 @@ struct ReminderOptionsSheet: View {
     @Environment(\.dismiss) private var dismiss
     @StateObject private var reminderService = ReminderService()
     @State private var showingPermissionAlert = false
-    @State private var showingErrorAlert = false
-    @State private var errorMessage = ""
     
     var body: some View {
         NavigationView {
@@ -637,54 +635,45 @@ struct ReminderOptionsSheet: View {
                     Button("Tomorrow") {
                         createReminder(daysBeforeDeadline: nil)
                     }
-                    .foregroundColor(.blue)
                     
                     Button("90 days before deadline") {
                         createReminder(daysBeforeDeadline: 90)
                     }
-                    .foregroundColor(.blue)
                     
                     Button("120 days before deadline") {
                         createReminder(daysBeforeDeadline: 120)
                     }
-                    .foregroundColor(.blue)
                 } header: {
-                    Text("REMIND ME")
+                    Text("Remind me")
                 }
             }
             .navigationTitle("Set Reminder")
             .navigationBarItems(trailing: Button("Cancel") { dismiss() })
         }
-        .alert("Permission Required", isPresented: $showingPermissionAlert) {
-            Button("OK", role: .cancel) {
-                // Request permission again
-                Task {
-                    await reminderService.requestAccess()
+        .alert("Reminders Permission Required", isPresented: $showingPermissionAlert) {
+            Button("Open Settings", role: .none) {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
                 }
             }
+            Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This app needs permission to create reminders. Please allow access when prompted.")
-        }
-        .alert("Error", isPresented: $showingErrorAlert) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(errorMessage)
+            Text("Please enable reminders access in Settings to create scholarship deadline reminders.")
         }
     }
     
     private func createReminder(daysBeforeDeadline: Int?) {
+        guard reminderService.hasPermission else {
+            showingPermissionAlert = true
+            return
+        }
+        
         Task {
-            if !reminderService.hasPermission {
-                showingPermissionAlert = true
-                return
-            }
-            
             do {
                 try await reminderService.createReminder(for: scholarship, daysBeforeDeadline: daysBeforeDeadline)
                 dismiss()
             } catch {
-                errorMessage = error.localizedDescription
-                showingErrorAlert = true
+                print("Failed to create reminder: \(error)")
             }
         }
     }
