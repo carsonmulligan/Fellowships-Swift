@@ -19,6 +19,37 @@ struct Scholarship: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case name, description, url, dueDate, value, tags
     }
+    
+    var daysUntilDeadline: Int {
+        guard let deadlineDate = dateFromString(self.dueDate) else { return 0 }
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        var deadline = calendar.startOfDay(for: deadlineDate)
+        
+        // If the deadline has passed this year, calculate for next year
+        if deadline < today {
+            deadline = calendar.date(byAdding: .year, value: 1, to: deadline) ?? deadline
+        }
+        
+        return calendar.dateComponents([.day], from: today, to: deadline).day ?? 0
+    }
+    
+    private func dateFromString(_ dateString: String) -> Date? {
+        let components = dateString.split(separator: "/")
+        guard components.count >= 3,
+              let month = Int(components[0]),
+              let day = Int(components[1]),
+              let year = Int(components[2]) else {
+            return nil
+        }
+        
+        var dateComponents = DateComponents()
+        dateComponents.month = month
+        dateComponents.day = day
+        dateComponents.year = year
+        
+        return Calendar.current.date(from: dateComponents)
+    }
 }
 
 struct ScholarshipData: Codable {
@@ -92,6 +123,7 @@ struct ScholarshipDetailView: View {
     let scholarship: Scholarship
     @ObservedObject var store: ScholarshipStore
     @Environment(\.openURL) private var openURL
+    @State private var showingReminderOptions = false
     
     private var formattedTags: [String] {
         scholarship.tags.compactMap { tag in
@@ -111,12 +143,22 @@ struct ScholarshipDetailView: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            store.toggleBookmark(for: scholarship)
-                        }) {
-                            Image(systemName: store.isBookmarked(scholarship) ? "bookmark.fill" : "bookmark")
-                                .font(.title2)
-                                .foregroundColor(.blue)
+                        HStack(spacing: 16) {
+                            Button(action: {
+                                showingReminderOptions = true
+                            }) {
+                                Image(systemName: "bell")
+                                    .font(.title2)
+                                    .foregroundColor(.blue)
+                            }
+                            
+                            Button(action: {
+                                store.toggleBookmark(for: scholarship)
+                            }) {
+                                Image(systemName: store.isBookmarked(scholarship) ? "bookmark.fill" : "bookmark")
+                                    .font(.title2)
+                                    .foregroundColor(.blue)
+                            }
                         }
                     }
                     
@@ -125,6 +167,9 @@ struct ScholarshipDetailView: View {
                             .foregroundColor(.blue)
                         Text("Due: \(formatDate(scholarship.dueDate))")
                             .foregroundColor(.blue)
+                        Text("(\(scholarship.daysUntilDeadline) days remaining)")
+                            .foregroundColor(.secondary)
+                            .font(.subheadline)
                     }
                 }
                 
@@ -202,6 +247,9 @@ struct ScholarshipDetailView: View {
             .padding()
         }
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showingReminderOptions) {
+            ReminderOptionsSheet(scholarship: scholarship)
+        }
     }
     
     private func formatDate(_ dateString: String) -> String {
@@ -275,6 +323,7 @@ struct FlowLayout: Layout {
 struct ScholarshipRow: View {
     let scholarship: Scholarship
     @ObservedObject var store: ScholarshipStore
+    @State private var showingReminderOptions = false
     
     private func formatDate(_ dateString: String) -> String {
         let components = dateString.split(separator: "/")
@@ -302,9 +351,14 @@ struct ScholarshipRow: View {
                             .font(.headline)
                             .foregroundColor(.primary)
                         Spacer()
-                        Text("Due: \(formatDate(scholarship.dueDate))")
-                            .font(.caption)
-                            .foregroundColor(.blue)
+                        VStack(alignment: .trailing) {
+                            Text("Due: \(formatDate(scholarship.dueDate))")
+                                .font(.caption)
+                                .foregroundColor(.blue)
+                            Text("\(scholarship.daysUntilDeadline) days left")
+                                .font(.caption2)
+                                .foregroundColor(.secondary)
+                        }
                     }
                     
                     Text(scholarship.description)
@@ -314,15 +368,28 @@ struct ScholarshipRow: View {
                 }
             }
             
-            // Bookmark button
-            Button(action: {
-                store.toggleBookmark(for: scholarship)
-            }) {
-                Image(systemName: store.isBookmarked(scholarship) ? "bookmark.fill" : "bookmark")
-                    .foregroundColor(.blue)
-                    .frame(width: 44, height: 44)
+            // Reminder and Bookmark buttons
+            HStack(spacing: 4) {
+                Button(action: {
+                    showingReminderOptions = true
+                }) {
+                    Image(systemName: "bell")
+                        .foregroundColor(.blue)
+                        .frame(width: 44, height: 44)
+                }
+                
+                Button(action: {
+                    store.toggleBookmark(for: scholarship)
+                }) {
+                    Image(systemName: store.isBookmarked(scholarship) ? "bookmark.fill" : "bookmark")
+                        .foregroundColor(.blue)
+                        .frame(width: 44, height: 44)
+                }
             }
             .buttonStyle(PlainButtonStyle())
+        }
+        .sheet(isPresented: $showingReminderOptions) {
+            ReminderOptionsSheet(scholarship: scholarship)
         }
         .padding()
         .background(
@@ -339,6 +406,29 @@ struct ContentView: View {
     @State private var selectedTags: Set<String> = []
     @State private var showFilters = false
     @State private var showBookmarksOnly = false
+    @State private var sortOrder: SortOrder = .none
+    
+    enum SortOrder {
+        case none
+        case deadlineAscending
+        case deadlineDescending
+        
+        var nextOrder: SortOrder {
+            switch self {
+            case .none: return .deadlineAscending
+            case .deadlineAscending: return .deadlineDescending
+            case .deadlineDescending: return .none
+            }
+        }
+        
+        var icon: String {
+            switch self {
+            case .none: return "arrow.up.arrow.down"
+            case .deadlineAscending: return "arrow.up"
+            case .deadlineDescending: return "arrow.down"
+            }
+        }
+    }
     
     static let availableTags = [
         "united_kingdom": "🇬🇧 Europe",
@@ -371,13 +461,23 @@ struct ContentView: View {
             scholarships = scholarships.filter { store.isBookmarked($0) }
         }
         
-        if selectedTags.isEmpty {
-            return scholarships
+        if !selectedTags.isEmpty {
+            scholarships = scholarships.filter { scholarship in
+                !Set(scholarship.tags).isDisjoint(with: selectedTags)
+            }
         }
         
-        return scholarships.filter { scholarship in
-            !Set(scholarship.tags).isDisjoint(with: selectedTags)
+        // Apply sorting
+        switch sortOrder {
+        case .deadlineAscending:
+            scholarships.sort { $0.daysUntilDeadline < $1.daysUntilDeadline }
+        case .deadlineDescending:
+            scholarships.sort { $0.daysUntilDeadline > $1.daysUntilDeadline }
+        case .none:
+            break
         }
+        
+        return scholarships
     }
     
     var body: some View {
@@ -400,6 +500,15 @@ struct ContentView: View {
                             .padding()
                             .background(Color(.systemBackground))
                             .cornerRadius(10)
+                        }
+                        
+                        // Sort Button
+                        Button(action: { sortOrder = sortOrder.nextOrder }) {
+                            Image(systemName: sortOrder.icon)
+                                .foregroundColor(.blue)
+                                .padding()
+                                .background(Color(.systemBackground))
+                                .cornerRadius(10)
                         }
                         
                         // Bookmarks Toggle
@@ -439,6 +548,17 @@ struct ContentView: View {
                             .padding(.horizontal)
                         }
                         .padding(.bottom)
+                    }
+                    
+                    // Sort Order Indicator
+                    if sortOrder != .none {
+                        HStack {
+                            Image(systemName: "calendar")
+                            Text(sortOrder == .deadlineAscending ? "Earliest deadlines first" : "Latest deadlines first")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.bottom, 8)
                     }
                     
                     // Scholarships List
@@ -494,6 +614,85 @@ struct FilterView: View {
                 }
             )
         }
+    }
+}
+
+struct ReminderOptionsSheet: View {
+    let scholarship: Scholarship
+    @Environment(\.dismiss) private var dismiss
+    @StateObject private var reminderService = ReminderService()
+    @State private var showingPermissionAlert = false
+    
+    var body: some View {
+        NavigationView {
+            List {
+                Section {
+                    Text("Due: \(formatDate(scholarship.dueDate))")
+                    Text("\(scholarship.daysUntilDeadline) days remaining")
+                }
+                
+                Section {
+                    Button("Tomorrow") {
+                        createReminder(daysBeforeDeadline: nil)
+                    }
+                    
+                    Button("90 days before deadline") {
+                        createReminder(daysBeforeDeadline: 90)
+                    }
+                    
+                    Button("120 days before deadline") {
+                        createReminder(daysBeforeDeadline: 120)
+                    }
+                } header: {
+                    Text("Remind me")
+                }
+            }
+            .navigationTitle("Set Reminder")
+            .navigationBarItems(trailing: Button("Cancel") { dismiss() })
+        }
+        .alert("Reminders Permission Required", isPresented: $showingPermissionAlert) {
+            Button("Open Settings", role: .none) {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Please enable reminders access in Settings to create scholarship deadline reminders.")
+        }
+    }
+    
+    private func createReminder(daysBeforeDeadline: Int?) {
+        guard reminderService.hasPermission else {
+            showingPermissionAlert = true
+            return
+        }
+        
+        Task {
+            do {
+                try await reminderService.createReminder(for: scholarship, daysBeforeDeadline: daysBeforeDeadline)
+                dismiss()
+            } catch {
+                print("Failed to create reminder: \(error)")
+            }
+        }
+    }
+    
+    private func formatDate(_ dateString: String) -> String {
+        let components = dateString.split(separator: "/")
+        guard components.count >= 2,
+              let month = Int(components[0]),
+              let day = Int(components[1]) else {
+            return dateString
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MMM"
+        let date = Calendar.current.date(from: DateComponents(month: month))!
+        let monthStr = dateFormatter.string(from: date)
+        
+        return "\(monthStr). \(day)"
     }
 }
 
