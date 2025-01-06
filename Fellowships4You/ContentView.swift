@@ -21,10 +21,16 @@ struct Scholarship: Identifiable, Codable {
     }
     
     var daysUntilDeadline: Int {
-        guard let dueDate = dateFromString(self.dueDate) else { return 0 }
+        guard let deadlineDate = dateFromString(self.dueDate) else { return 0 }
         let calendar = Calendar.current
         let today = calendar.startOfDay(for: Date())
-        let deadline = calendar.startOfDay(for: dueDate)
+        var deadline = calendar.startOfDay(for: deadlineDate)
+        
+        // If the deadline has passed this year, calculate for next year
+        if deadline < today {
+            deadline = calendar.date(byAdding: .year, value: 1, to: deadline) ?? deadline
+        }
+        
         return calendar.dateComponents([.day], from: today, to: deadline).day ?? 0
     }
     
