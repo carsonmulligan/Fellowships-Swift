@@ -400,6 +400,29 @@ struct ContentView: View {
     @State private var selectedTags: Set<String> = []
     @State private var showFilters = false
     @State private var showBookmarksOnly = false
+    @State private var sortOrder: SortOrder = .none
+    
+    enum SortOrder {
+        case none
+        case deadlineAscending
+        case deadlineDescending
+        
+        var nextOrder: SortOrder {
+            switch self {
+            case .none: return .deadlineAscending
+            case .deadlineAscending: return .deadlineDescending
+            case .deadlineDescending: return .none
+            }
+        }
+        
+        var icon: String {
+            switch self {
+            case .none: return "arrow.up.arrow.down"
+            case .deadlineAscending: return "arrow.up"
+            case .deadlineDescending: return "arrow.down"
+            }
+        }
+    }
     
     static let availableTags = [
         "united_kingdom": "🇬🇧 Europe",
@@ -432,13 +455,23 @@ struct ContentView: View {
             scholarships = scholarships.filter { store.isBookmarked($0) }
         }
         
-        if selectedTags.isEmpty {
-            return scholarships
+        if !selectedTags.isEmpty {
+            scholarships = scholarships.filter { scholarship in
+                !Set(scholarship.tags).isDisjoint(with: selectedTags)
+            }
         }
         
-        return scholarships.filter { scholarship in
-            !Set(scholarship.tags).isDisjoint(with: selectedTags)
+        // Apply sorting
+        switch sortOrder {
+        case .deadlineAscending:
+            scholarships.sort { $0.daysUntilDeadline < $1.daysUntilDeadline }
+        case .deadlineDescending:
+            scholarships.sort { $0.daysUntilDeadline > $1.daysUntilDeadline }
+        case .none:
+            break
         }
+        
+        return scholarships
     }
     
     var body: some View {
@@ -461,6 +494,15 @@ struct ContentView: View {
                             .padding()
                             .background(Color(.systemBackground))
                             .cornerRadius(10)
+                        }
+                        
+                        // Sort Button
+                        Button(action: { sortOrder = sortOrder.nextOrder }) {
+                            Image(systemName: sortOrder.icon)
+                                .foregroundColor(.blue)
+                                .padding()
+                                .background(Color(.systemBackground))
+                                .cornerRadius(10)
                         }
                         
                         // Bookmarks Toggle
@@ -500,6 +542,17 @@ struct ContentView: View {
                             .padding(.horizontal)
                         }
                         .padding(.bottom)
+                    }
+                    
+                    // Sort Order Indicator
+                    if sortOrder != .none {
+                        HStack {
+                            Image(systemName: "calendar")
+                            Text(sortOrder == .deadlineAscending ? "Earliest deadlines first" : "Latest deadlines first")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.bottom, 8)
                     }
                     
                     // Scholarships List
