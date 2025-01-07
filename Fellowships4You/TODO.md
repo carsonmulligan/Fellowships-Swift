@@ -1,2 +1,4 @@
-> write a script that translates seeds.rb values into scholarships.json format 
+ 
 > submit to app store
+> add privacy policy github repo 
+> distribute on app store connect 

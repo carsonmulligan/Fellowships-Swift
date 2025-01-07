@@ -1,0 +1,100 @@
+<app_store_deployment>
+    <step_1_xcode_configuration>
+        <title>Update Xcode Project Settings</title>
+        <actions>
+            <action>Open Fellowships4You.xcodeproj</action>
+            <action>Select project in navigator</action>
+            <action>Select target "Fellowships4You"</action>
+            <action>Go to "General" tab</action>
+            <substeps>
+                <deployment_target>
+                    <action>Set "Minimum Deployable" to desired iOS version (recommended: iOS 15.0)</action>
+                    <note>Current code uses SwiftUI features compatible with iOS 15+</note>
+                </deployment_target>
+                <device_support>
+                    <action>Select supported devices (iPhone/iPad)</action>
+                </device_support>
+            </substeps>
+        </actions>
+    </step_1_xcode_configuration>
+
+    <step_2_version_compatibility>
+        <title>Add Version Compatibility Checks</title>
+        <code_updates>
+            <update>Add @available checks where needed</update>
+            <update>Test on older iOS simulators</update>
+            <update>Handle deprecated APIs if targeting below iOS 16</update>
+        </code_updates>
+    </step_2_version_compatibility>
+
+    <step_3_app_store_preparation>
+        <title>Prepare App Store Information</title>
+        <requirements>
+            <item>App Icon (1024x1024)</item>
+            <item>Screenshots for different devices</item>
+            <item>App description</item>
+            <item>Keywords</item>
+            <item>Privacy Policy URL</item>
+            <item>Support URL</item>
+        </requirements>
+    </step_3_app_store_preparation>
+
+    <step_4_archive_creation>
+        <title>Create Archive</title>
+        <actions>
+            <action>Select "Any iOS Device (arm64)" as build target</action>
+            <action>Select Product > Archive</action>
+            <action>Wait for archive process to complete</action>
+        </actions>
+    </step_4_archive_creation>
+
+    <step_5_upload_process>
+        <title>Upload to App Store Connect</title>
+        <actions>
+            <action>Open Xcode Organizer (Window > Organizer)</action>
+            <action>Select your archive</action>
+            <action>Click "Distribute App"</action>
+            <action>Choose "App Store Connect"</action>
+            <action>Select "Upload"</action>
+            <action>Follow upload wizard steps</action>
+        </actions>
+    </step_5_upload_process>
+
+    <step_6_app_store_connect>
+        <title>Configure in App Store Connect</title>
+        <url>https://appstoreconnect.apple.com</url>
+        <actions>
+            <action>Log in to App Store Connect</action>
+            <action>Select your app</action>
+            <action>Configure app information</action>
+            <action>Set up app privacy details</action>
+            <action>Submit for review</action>
+        </actions>
+    </step_6_app_store_connect>
+
+    <step_7_testing>
+        <title>Pre-submission Testing</title>
+        <checklist>
+            <item>Test on multiple iOS versions</item>
+            <item>Verify all features work on minimum iOS version</item>
+            <item>Check performance on older devices</item>
+            <item>Test network conditions</item>
+            <item>Verify data persistence</item>
+        </checklist>
+    </step_7_testing>
+
+    <common_issues>
+        <issue>
+            <problem>SwiftUI compatibility issues</problem>
+            <solution>Use availability checks and fallbacks for older iOS versions</solution>
+        </issue>
+        <issue>
+            <problem>Missing privacy descriptions</problem>
+            <solution>Add required privacy keys in Info.plist</solution>
+        </issue>
+        <issue>
+            <problem>Signing issues</problem>
+            <solution>Verify certificates and provisioning profiles</solution>
+        </issue>
+    </common_issues>
+</app_store_deployment>
