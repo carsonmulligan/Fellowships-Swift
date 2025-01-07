@@ -13,10 +13,15 @@ class ReminderService: ObservableObject {
     
     func requestAccess() async {
         do {
-            hasPermission = try await store.requestAccess(to: .reminder)
+            let permission = try await store.requestAccess(to: .reminder)
+            await MainActor.run {
+                self.hasPermission = permission
+            }
         } catch {
             print("Failed to request reminders access: \(error)")
-            hasPermission = false
+            await MainActor.run {
+                self.hasPermission = false
+            }
         }
     }
     
