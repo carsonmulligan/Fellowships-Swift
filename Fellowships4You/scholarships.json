@@ -23,7 +23,7 @@
     {
       "name": "🇬🇧 Gates-Cambridge Scholarship",
       "description": "The Gates Cambridge Scholarship supports one to three years of post-baccalaureate study in any field at the University of Cambridge. Students must apply for admission as a postgraduate student to the University of Cambridge and a Gates Cambridge Scholarship at the same time, with one application form, via the Graduate Admissions Office. Applicants must demonstrate exceptional academic achievement, potential for scholarly development, and a commitment to use the benefits of their education for the common good. Citizens from any country other than the UK are eligible.",
-      "url": "\"https\"://www.gatescambridge.org/",
+      "url": "https://www.gatescambridge.org/",
       "dueDate": "10/10/2025",
       "value": 1,
       "tags": [
@@ -33,7 +33,7 @@
     {
       "name": "🇬🇧 Churchill Scholarship",
       "description": "The Churchill Scholarship provides around $60,000 for a year of graduate study in engineering, mathematics, or science at Churchill College, Cambridge University, plus a $1500 travel allowance and the possibility of a $2000 Special Research Grant, approved in advance by the Foundation, to cover research expenses. Fifteen scholarships are awarded annually.",
-      "url": "\"https\"://www.churchillscholarship.org/the-scholarship#Apply",
+      "url": "https://www.churchillscholarship.org/the-scholarship#Apply",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -53,7 +53,7 @@
     {
       "name": "🇺🇸 Stanford Knight-Henessy Scholarship",
       "description": "The Knight-Hennessy scholarship offers up to three years of funding for a graduate degree in any of Stanford University's 125 degree programs, from PhD's in education, engineering, the humanities, and the natural sciences to professional degrees such as the MS, JD, MD, MBA, or MFA. In addition to their graduate studies, scholars participate in leadership development programs and immersive study trips and have mentor opportunities with major leaders in the business, government, and nonprofit fields. The scholarship is open to citizens from any country. Those who are interested must have earned an undergraduate degree in 2014 or later to be eligible to apply for acceptance in the fall of 2020. Institutional endorsement is not required.",
-      "url": "\"https\"://knight-hennessy.stanford.edu/",
+      "url": "https://knight-hennessy.stanford.edu/",
       "dueDate": "10/12/2025",
       "value": 1,
       "tags": [
@@ -63,7 +63,7 @@
     {
       "name": "🇺🇸 Soros Fellowship for New Americans",
       "description": "Up to two years of full-time graduate study in any field for new citizens or first-generation children of non-US citizens.",
-      "url": "\"https\"://www.pdsoros.org/",
+      "url": "https://www.pdsoros.org/",
       "dueDate": "10/15/2025",
       "value": 1,
       "tags": [
@@ -73,7 +73,7 @@
     {
       "name": "🇨🇳 Schwarzman Scholarship",
       "description": "Schwarzman Scholars is a highly-selective, fully-funded Master's degree in Global Affairs program based at the distinguished Tsinghua University in Beijing. Schwarzman Scholars is an education and leadership development program designed to ensure that the next generation of business, political, and non-profit leaders around the world have a deeper understanding of how their fields are influenced by China's emerging global role. Citizens of all countries are eligible. Candidates must be at least 18 but not yet 29 years of age. English proficiency test scores must be submitted if English is not the applicant's native language. ",
-      "url": "\"https\"://connect.schwarzmanscholars.org/apply/",
+      "url": "https://connect.schwarzmanscholars.org/apply/",
       "dueDate": "09/20/2025",
       "value": 1,
       "tags": [
@@ -83,7 +83,7 @@
     {
       "name": "🇨🇳 Yenching Academy Scholarship",
       "description": "Provides funding to pursue a two-year master's degree in China Studies from Peking University. Applicants from diverse fields come together to study ancient, modern, and contemporary China in an English-taught program.",
-      "url": "\"https\"://yenchingacademy.pku.edu.cn/",
+      "url": "https://yenchingacademy.pku.edu.cn/",
       "dueDate": "12/01/2025",
       "value": 1,
       "tags": [
@@ -93,7 +93,7 @@
     {
       "name": "🇯🇵 Watanabe Study Abroad Scholarship",
       "description": "Scholarship provides financial assistance up to the full cost of attendance for study abroad in Japan to undergraduates and graduate students in need of financial support. ",
-      "url": "\"https\"://www.usjapancouncil.org/watanabe-scholarship/",
+      "url": "https://www.usjapancouncil.org/watanabe-scholarship/",
       "dueDate": "02/15/2025",
       "value": 1,
       "tags": [
@@ -123,7 +123,7 @@
     {
       "name": "🇺🇸 Beinecke Scholarship",
       "description": "The Beinecke Scholarship enables students in the traditional liberal arts to pursue graduate school opportunities they may not otherwise have been able to pursue. The award provides $4,000 immediately prior to attending graduate school and a maximum stipend of $15,000 per year while in graduate school. About 20 awards are given annually.",
-      "url": "\"https\"://beineckescholarship.org/",
+      "url": "https://beineckescholarship.org/",
       "dueDate": "02/08/2025",
       "value": 1,
       "tags": [
@@ -143,7 +143,7 @@
     {
       "name": "🌏 Luce Scholarship",
       "description": "The award provides for a year's experience in Asia in an internship arranged for each Scholar on the basis of his/her specific interest, background, qualifications, and experience. The program was designed as a cultural experience for young leaders who have had no prior experience of Asia and who might not otherwise have an opportunity in the normal course of their careers to come to know Asia or their Asian counterparts and contemporaries... both to broaden their professional perspective and to sharpen their perceptions of Asia, of America, and of themselves. Placements can be made \"in\": Cambodia, China, Hong Kong, India, Indonesia, Japan, Laos, Malaysia, Mongolia, Myanmar, Nepal, Philippines, Singapore, South Korea, Sri Lanka, Taiwan, Thailand, Timor Leste, and Vietnam. Luce Scholars are chosen from 75 colleges and universities. About 18 awards are made each year.",
-      "url": "\"https\"://www.hluce.org/programs/luce-scholars/",
+      "url": "https://www.hluce.org/programs/luce-scholars/",
       "dueDate": "10/15/2025",
       "value": 1,
       "tags": [
@@ -163,7 +163,7 @@
     {
       "name": "🇺🇸 🌐 Thomas Pickering Fellowship",
       "description": "Full-ride Masters program with a track to the United States Foreign Diplomatic Service",
-      "url": "\"https\"://pickeringfellowship.org/",
+      "url": "https://pickeringfellowship.org/",
       "dueDate": "09/15/2025",
       "value": 1,
       "tags": [
@@ -197,7 +197,7 @@
     {
       "name": "🇺🇸 🌐 Foreign Affairs Information Technology Fellowship",
       "description": "A fellowship to fund a two-year master's degree in an IT-related field for students who want a career in the Foreign Service as an Information Management Specialist. This two-year award includes two paid summer internships (one in Washington DC and one abroad). Applications from members of historically underrepresented groups in Foreign Service careers are encouraged.",
-      "url": "\"https\"://www.faitfellowship.org/how-to-apply/",
+      "url": "https://www.faitfellowship.org/how-to-apply/",
       "dueDate": "01/31/2025",
       "value": 1,
       "tags": [
@@ -218,7 +218,7 @@
     {
       "name": "🌐 Fulbright Fogarty Fellows In Public Health",
       "description": "Public health and clinical research in resource-limited settings.",
-      "url": "\"https\"://us.fulbrightonline.org/about/types-of-awards/fulbright-fogarty-fellowships-in-public-health",
+      "url": "https://us.fulbrightonline.org/about/types-of-awards/fulbright-fogarty-fellowships-in-public-health",
       "dueDate": "10/01/2025",
       "value": 1,
       "tags": [
@@ -238,7 +238,7 @@
     {
       "name": "🇺🇸 🌐 Payne International Development Fellowship",
       "description": "USAID Pathway and up to $104,000 in benefits over two years for graduate school, internships, and professional development",
-      "url": "\"https\"://www.paynefellows.org/",
+      "url": "https://www.paynefellows.org/",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -261,7 +261,7 @@
     {
       "name": "🇺🇸 🌐 🗣 Boren National Security Education Awards",
       "description": "Funding for intensive language study abroad.",
-      "url": "\"https\"://www.borenawards.org/",
+      "url": "https://www.borenawards.org/",
       "dueDate": "01/15/2025",
       "value": 1,
       "tags": [
@@ -273,7 +273,7 @@
     {
       "name": "🌏 🗣 🌐 Blakemore Freeman Fellowships for Advanced Study of Asian Languages",
       "description": "Blakemore Freeman Fellowships are awarded for one academic year (two semesters or three quarters) of advanced level language study in East or Southeast Asia. Eligible languages are Chinese, Japanese, Korean, Indonesian, Khmer, Thai, and Vietnamese. Fellowships cover tuition, and a stipend for related educational expenses, basic living costs and transportation. The Blakemore Foundation makes grants for study only at specific language programs. Please refer to the current list of approved programs.",
-      "url": "\"https\"://www.blakemorefoundation.org/language",
+      "url": "https://www.blakemorefoundation.org/language",
       "dueDate": "12/01/2025",
       "value": 1,
       "tags": [
@@ -308,7 +308,7 @@
     {
       "name": "🇩🇪 🗣 Congress Bundestag Youth Exchange (CBYX) Program",
       "description": "Provides one year of funding in Germany to cover two months of intensive German language study, one semester of classes in any academic field at a German university or school, and a three-month internship in your field.",
-      "url": "\"https\"://culturalvistas.org/programs/abroad/congress-bundestag-youth-exchange-young-professionals/",
+      "url": "https://culturalvistas.org/programs/abroad/congress-bundestag-youth-exchange-young-professionals/",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -319,7 +319,7 @@
     {
       "name": "🇩🇪 🗣 🗺 German Chancellor Fellowship (Alexander Von Humboldt Foundation)",
       "description": "Provides funding for recent graduates to carry out a self-designed project in Germany in any field. German language proficiency is not required, although German language classes are provided during the grant period.",
-      "url": "\"https\"://www.humboldt-foundation.de/en/apply/sponsorship-programmes/german-chancellor-fellowship",
+      "url": "https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/german-chancellor-fellowship",
       "dueDate": "10/15/2025",
       "value": 1,
       "tags": [
@@ -330,7 +330,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 Barry M. Goldwater Scholarship",
       "description": "The Goldwater Scholarship was established to foster and encourage excellence in the natural sciences, engineering, and mathematics in the U.S. Awards are made annually, each scholarship providing a maximum of $7500 per year for tuition, fees, books, and room and board. Sophomore applicants are eligible for two years of support, junior applicants for one year of support. Approximately 450 awards will be given annually through 2025.",
-      "url": "\"https\"://goldwater.scholarsapply.org/",
+      "url": "https://goldwater.scholarsapply.org/",
       "dueDate": "01/15/2025",
       "value": 1,
       "tags": [
@@ -352,7 +352,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 💰 Hertz Fellowship",
       "description": "The Hertz Foundation Graduate Fellowship is designed to foster the graduate-level studies of excellent young men and women who seem likely to become leaders in scientific and technological advances, exemplars of teaching skills in the applied physical sciences, and key contributors to the technological capability on which the well-being of the United States depends. Full-tuition equivalent for up to five years of funding valued at up to $250,000. Additional stipend if coordinated with other fellowships. $5,000 annual dependent childcare stipend.",
-      "url": "\"https\"://www.hertzfoundation.org/the-fellowship/faq/",
+      "url": "https://www.hertzfoundation.org/the-fellowship/faq/",
       "dueDate": "10/27/2025",
       "value": 1,
       "tags": [
@@ -364,7 +364,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 🗽 Ford Foundation Fellowship",
       "description": "Diversity partnership with National Academy of Sciences for graduate study in STEM",
-      "url": "\"https\"://sites.nationalacademies.org/PGA/FordFellowships/index.htm",
+      "url": "https://sites.nationalacademies.org/PGA/FordFellowships/index.htm",
       "dueDate": "12/08/2025",
       "value": 1,
       "tags": [
@@ -376,7 +376,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 National Science Foundation Graduate Research Fellowship Program",
       "description": "Up to three years of support for STEM graduate education",
-      "url": "\"https\"://nsfgrfp.org/applicants/",
+      "url": "https://nsfgrfp.org/applicants/",
       "dueDate": "10/10/2025",
       "value": 1,
       "tags": [
@@ -387,7 +387,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 ⚕️ National Institutes of Health Undergraduate Scholarship Program",
       "description": "Up to $20,000 in scholarship support per year to eligible undergraduates who are pursuing degrees in fields related to biomedical research.",
-      "url": "\"https\"://www.training.nih.gov/programs/ugsp",
+      "url": "https://www.training.nih.gov/programs/ugsp",
       "dueDate": "03/15/2025",
       "value": 1,
       "tags": [
@@ -399,7 +399,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 ⚕️ National Institutes of Health Postbaccalaureate Intramural Research Training Award",
       "description": "Provides recent college graduates who are planning to apply to graduate or professional (medical/dental/pharmacy/nursing/veterinary, etc.) school an opportunity to spend one or two years performing full-time research at the NIH",
-      "url": "\"https\"://www.training.nih.gov/programs/postbac_irta",
+      "url": "https://www.training.nih.gov/programs/postbac_irta",
       "dueDate": "03/15/2025",
       "value": 1,
       "tags": [
@@ -411,7 +411,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 ⚕️ National Institutes of Health Oxford/Cambridge Biomedical Research",
       "description": "Provides full funding to complete an accelerated, individualized doctoral training program for outstanding STEM students committed to biomedical research careers.",
-      "url": "\"https\"://oxcam.gpp.nih.gov/prospective-students",
+      "url": "https://oxcam.gpp.nih.gov/prospective-students",
       "dueDate": "01/10/2025",
       "value": 1,
       "tags": [
@@ -423,7 +423,7 @@
     {
       "name": "🇺🇸 🇬🇧 🧑‍🔬 ⚕️ National Institutes of Health Oxford/Cambridge MD/PhD",
       "description": "An award for students to conduct research in the NIH intramural research program combined with a dual-degree completed at a U.S. medical school and at Oxford or Cambridge University.",
-      "url": "\"https\"://oxcam.gpp.nih.gov/about/mdphd-partnerships-program",
+      "url": "https://oxcam.gpp.nih.gov/about/mdphd-partnerships-program",
       "dueDate": "01/10/2025",
       "value": 1,
       "tags": [
@@ -436,7 +436,7 @@
     {
       "name": "🇺🇸 🧑‍🔬 National Science Foundation Research Fellowship Program",
       "description": "Provides fellowships to students early in their graduate school careers who have demonstrated a strong potential for significant research achievements in STEM fields.",
-      "url": "\"https\"://www.nsfgrfp.org/applicants/",
+      "url": "https://www.nsfgrfp.org/applicants/",
       "dueDate": "10/15/2025",
       "value": 1,
       "tags": [
@@ -447,7 +447,7 @@
     {
       "name": "🇺🇸 🗽 American Association of University Women American Fellowships",
       "description": "Up to $80,000 for PhD dissertation, Postdoctoral Research Leave, and Short-Term Research Publication Grant.",
-      "url": "\"https\"://www.aauw.org/resources/programs/fellowships-grants/",
+      "url": "https://www.aauw.org/resources/programs/fellowships-grants/",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -458,7 +458,7 @@
     {
       "name": "🇺🇸 🗽 American Association of University Women Career Development Grants",
       "description": "Up to $20,000 to women who hold a bachelor's degree and are preparing to advance or change careers or re-enter the workforce in education; health and medical sciences; science, technology, engineering, and math (STEM); or social sciences. Primary consideration is given to women of color and women pursuing their first advanced degree or credentials in nontraditional fields.",
-      "url": "\"https\"://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/career-development/",
+      "url": "https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/career-development/",
       "dueDate": "11/15/2025",
       "value": 1,
       "tags": [
@@ -469,7 +469,7 @@
     {
       "name": "🇺🇸 🗽 American Association of University Women Community Action Grants",
       "description": "Up to $10,000 for individuals, researchers, and organizations that promote education and equity for women and girls",
-      "url": "\"https\"://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/community-action/",
+      "url": "https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/community-action/",
       "dueDate": "12/01/2025",
       "value": 1,
       "tags": [
@@ -480,7 +480,7 @@
     {
       "name": "🇺🇸 🗽 American Association of University Women International Fellowships",
       "description": "Up to $50,000 for women pursuing full-time graduate or postdoctoral study in the United States to women who are not U.S. citizens or permanent residents, and who intend to return to their home country to pursue a professional career.",
-      "url": "\"https\"://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/international/",
+      "url": "https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/international/",
       "dueDate": "11/15/2025",
       "value": 1,
       "tags": [
@@ -491,7 +491,7 @@
     {
       "name": "🇺🇸 🗽 American Association of University Women International Project Grants",
       "description": "Up to $7,000 for International AAUW fellows to build on their academic work and implement community-based projects that will improve the lives of women and girls in their home countries.",
-      "url": "\"https\"://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/international-project/",
+      "url": "https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/international-project/",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -502,7 +502,7 @@
     {
       "name": "🇺🇸 🗽 American Association of University Women Research Publication Grant in Engineering, Medicine, and Science",
       "description": "Up to $35,000 to women scholars conducting basic research in engineering, medicine or the physical or biological sciences and who have a doctorate degree in one of those fields. The grantee must publish their research in a scholarly publication and be listed as a primary author.",
-      "url": "\"https\"://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/research-publication-grants/",
+      "url": "https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/research-publication-grants/",
       "dueDate": "12/01/2025",
       "value": 1,
       "tags": [
@@ -513,7 +513,7 @@
     {
       "name": "🇺🇸 🗽 American Association of University Women Selected Professions Fellowships",
       "description": "$20,000 awarded to women who intend to pursue a full-time course of study at accredited U.S. institutions during the fellowship year in one of the designated degree programs where women's participation traditionally has been low. Applicants must be U.S. citizens or permanent residents.",
-      "url": "\"https\"://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/selected-professions-fellowships/",
+      "url": "https://www.aauw.org/resources/programs/fellowships-grants/current-opportunities/selected-professions-fellowships/",
       "dueDate": "12/01/2025",
       "value": 1,
       "tags": [
@@ -524,7 +524,7 @@
     {
       "name": "🇺🇸 🛡 Victims of PanAm Flight 103 Legacy Award",
       "description": "Legacy Awards are available to students pursuing advanced degrees at U.S. institutions in areas of study related to improved national security and terrorism prevention. Applicants may apply from all fields of study, but only applicants who make a clear connection between their program of study and career goals with improving national security and terrorism prevention will be considered for this award.",
-      "url": "\"https\"://www.victimsofpanamflight103.org/legacy-award",
+      "url": "https://www.victimsofpanamflight103.org/legacy-award",
       "dueDate": "02/21/2025",
       "value": 1,
       "tags": [
@@ -535,7 +535,7 @@
     {
       "name": "🇺🇸 🗽 ⚖️ Marshall-Motley Scholarship from NAACP",
       "description": "Provides a full scholarship to law school for students who want to be civil rights attorneys in the South to advocate for Black communities seeking racial justice and equity.",
-      "url": "\"https\"://marshallmotleyscholars.org/",
+      "url": "https://marshallmotleyscholars.org/",
       "dueDate": "02/11/2025",
       "value": 1,
       "tags": [
@@ -547,7 +547,7 @@
     {
       "name": "🌐 💰 Rotary Global Grants",
       "description": "Global Grants fund one to four years (up to $400,000) of international graduate study in areas related \"to\": peacebuilding and conflict resolution; disease prevention and treatment; water and sanitation; maternal and child health; basic education and literacy; community economic development.",
-      "url": "\"https\"://my.rotary.org/en/take-action/apply-grants/global-grants",
+      "url": "https://my.rotary.org/en/take-action/apply-grants/global-grants",
       "dueDate": "06/30/2025",
       "value": 1,
       "tags": [
@@ -558,7 +558,7 @@
     {
       "name": "🇺🇸 ✌️ Carnegie Endowment for International Peace James Gaither Junior Fellows Program",
       "description": "The award provides a one-year paid internship in Washington, D.C. with the Endowment. Junior Fellows work as research assistants on projects such as non-proliferation, democracy building, migration, international economics, and Russian/Eurasian issues. About twelve awards are given annually.",
-      "url": "\"https\"://carnegieendowment.org/about/jr-fellows",
+      "url": "https://carnegieendowment.org/about/jr-fellows",
       "dueDate": "01/15/2025",
       "value": 1,
       "tags": [
@@ -569,7 +569,7 @@
     {
       "name": "🇺🇸 ✌️ Scoville Peace Fellowship Spring 2025",
       "description": "Funding to spend 6-9 months in Washington DC working at an agency or organization committed to peace and security issues.",
-      "url": "\"https\"://scoville.org/overview/deadlines/",
+      "url": "https://scoville.org/overview/deadlines/",
       "dueDate": "10/03/2025",
       "value": 1,
       "tags": [
@@ -580,7 +580,7 @@
     {
       "name": "🇺🇸 ✌️ Scoville Peace Fellowship Fall 2025",
       "description": "Funding to spend 6-9 months in Washington DC working at an agency or organization committed to peace and security issues.",
-      "url": "\"https\"://scoville.org/overview/deadlines/",
+      "url": "https://scoville.org/overview/deadlines/",
       "dueDate": "01/07/2025",
       "value": 1,
       "tags": [
@@ -603,7 +603,7 @@
     {
       "name": "🇺🇸 🌐 🥖 Emerson National Hunger Fellowship",
       "description": "Fellows spend five months learning about hunger and poverty issues in a community-based placement and then spend six months in Washington DC working with a government agency focused on national anti-hunger and anti-poverty policy.",
-      "url": "\"https\"://www.hungercenter.org/what-we-do/emerson-fellowship/fellows/",
+      "url": "https://www.hungercenter.org/what-we-do/emerson-fellowship/fellows/",
       "dueDate": "11/30/2025",
       "value": 1,
       "tags": [
@@ -615,7 +615,7 @@
     {
       "name": "🇺🇸 🌐 🥖 Food and Agriculture Organization of the United Nations Schwarz Fellowship",
       "description": "A two-year paid internship for recent graduates interested in enacting social change. Make a difference working for a high-impact non-profit organization.",
-      "url": "\"https\"://www.faoschwarzfellowship.org/how-to-apply/",
+      "url": "https://www.faoschwarzfellowship.org/how-to-apply/",
       "dueDate": "02/10/2025",
       "value": 1,
       "tags": [
@@ -627,7 +627,7 @@
     {
       "name": "🇺🇸 🗽 NYC Urban Fellows",
       "description": "Funds a nine-month placement in NYC to learn about local government and public service. Opportunities combine work in mayoral offices and city agencies with volunteer service agencies and a seminar series.",
-      "url": "\"https\"://www1.nyc.gov/site/dcas/employment/urban-fellows.page",
+      "url": "https://www1.nyc.gov/site/dcas/employment/urban-fellows.page",
       "dueDate": "01/01/2025",
       "value": 1,
       "tags": [
@@ -638,7 +638,7 @@
     {
       "name": "🇮🇳 AIF Clinton Fellowship for Service in India",
       "description": "Provides funding for a 10-month immersive volunteer service experience. Recipients work on sustainable development projects in education, livelihoods, and public health.",
-      "url": "\"https\"://aif.org/fellowship/",
+      "url": "https://aif.org/fellowship/",
       "dueDate": "01/31/2025",
       "value": 1,
       "tags": [
@@ -648,7 +648,7 @@
     {
       "name": "🇯🇵 JET Program (Japan Exchange and Teaching)",
       "description": "Participants work throughout Japan as Assistant Language Teachers in public and private schools.",
-      "url": "\"https\"://jetprogramusa.org/how-to-apply/",
+      "url": "https://jetprogramusa.org/how-to-apply/",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -658,7 +658,7 @@
     {
       "name": "🌐 ✌️ Peace Corps",
       "description": "Peace Corps offers volunteers a two-year, immersive experience living in a host country and working on a wide range of projects.",
-      "url": "\"https\"://www.peacecorps.gov/apply/",
+      "url": "https://www.peacecorps.gov/apply/",
       "dueDate": "10/01/2025",
       "value": 1,
       "tags": [
@@ -669,7 +669,7 @@
     {
       "name": "🌍 Princeton-in-Africa",
       "description": "Provides funding for an opportunity to work in the field of development on the African continent for 12-months. Placements are made in up to 36 African countries.",
-      "url": "\"https\"://www.princetoninafrica.org/applicants/how-to-apply/",
+      "url": "https://www.princetoninafrica.org/applicants/how-to-apply/",
       "dueDate": "10/15/2025",
       "value": 1,
       "tags": [
@@ -679,7 +679,7 @@
     {
       "name": "🌏 Princeton-in-Asia",
       "description": "Provides funding for year-long placements in various organizations throughout 20 countries in Asia. Placements include teaching English at all grade levels and working with international and local nonprofit organizations that focus on global issues.",
-      "url": "\"https\"://piaweb.princeton.edu/apply-to-pia",
+      "url": "https://piaweb.princeton.edu/apply-to-pia",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -689,7 +689,7 @@
     {
       "name": "🌎 Princeton-in-Latin America",
       "description": "Provides funding for a year-long placement with nonprofit, public service, humanitarian, and government organizations in Latin America and the Caribbean.",
-      "url": "\"https\"://pila-princeton.org/how-apply",
+      "url": "https://pila-princeton.org/how-apply",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
