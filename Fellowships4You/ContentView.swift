@@ -233,7 +233,7 @@ struct ScholarshipDetailView: View {
                     }
                 }) {
                     HStack {
-                        Text("Apply Now")
+                        Text("Visit Site")
                         Image(systemName: "arrow.right")
                     }
                     .frame(maxWidth: .infinity)
