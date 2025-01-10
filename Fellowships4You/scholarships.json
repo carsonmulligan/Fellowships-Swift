@@ -3,7 +3,7 @@
     {
       "name": "🇬🇧 Rhodes Scholarship",
       "description": "The Rhodes Scholarships are the oldest and most celebrated international fellowship awards in the world. Each year 32 young students from the U.S. are selected as Rhodes Scholars. The Rhodes Scholarship funds two years of graduate study at Oxford University in most fields (excluding professional degree programs such as law and medicine).",
-      "url": "\"http\"://www.rhodesscholar.org/",
+      "url": "http://www.rhodesscholar.org/",
       "dueDate": "10/01/2025",
       "value": 1,
       "tags": [
@@ -13,7 +13,7 @@
     {
       "name": "🇬🇧 Marshall Scholarship",
       "description": "The Marshall Scholarship funds one or two years of graduate study at a wide range of institutions in the United Kingdom. Most fields of study are supported. Professional degrees, such as those in law, business, and medicine are excluded, as are second baccalaureate degrees.",
-      "url": "\"http\"://www.marshallscholarship.org/",
+      "url": "http://www.marshallscholarship.org/",
       "dueDate": "09/15/2025",
       "value": 1,
       "tags": [
@@ -43,7 +43,7 @@
     {
       "name": "🇮🇪 Mitchell Scholarship",
       "description": "The George J. Mitchell Scholarship supports one year of graduate study in any field at one of the eleven institutions of higher learning on the island of Ireland. This includes the seven universities in the Republic of Ireland, two institutes in Dublin, and two universities in Northern Ireland (Queen's University Belfast and the Ulster University). Up to 12 Scholars are selected each year.",
-      "url": "\"http\"://www.us-irelandalliance.org/mitchellscholarship",
+      "url": "http://www.us-irelandalliance.org/mitchellscholarship",
       "dueDate": "09/15/2025",
       "value": 1,
       "tags": [
@@ -103,7 +103,7 @@
     {
       "name": "🇺🇸 🎖 Harry S. Truman Scholarship",
       "description": "The Harry S. Truman Scholarship provides funding for graduate school as preparation for a career in government or public service. Truman Scholars receive up to $30,000 for graduate studies. In addition, they participate in leadership development programs and have special opportunities for internships and employment with the federal government. About 60 scholarships are awarded each year.",
-      "url": "\"http\"://www.truman.gov/",
+      "url": "http://www.truman.gov/",
       "dueDate": "01/15/2025",
       "value": 1,
       "tags": [
@@ -113,7 +113,7 @@
     {
       "name": "🇺🇸 James Madison Fellowship",
       "description": "The James Madison Graduate Fellowship Program is a federally-endowed fellowship program designed to strengthen instruction about the U.S. Constitution at the secondary school level. Graduating seniors without teaching experience who intend to pursue a career in teaching American history or political science can receive funding for two years of master's level graduate study of the framing and history of the Constitution. Fellows must agree to teach full-time in a secondary school for no less than one year for each full year of fellowship support. U.S. citizenship required.",
-      "url": "\"http\"://www.jamesmadison.gov/",
+      "url": "http://www.jamesmadison.gov/",
       "dueDate": "03/01/2025",
       "value": 1,
       "tags": [
@@ -133,7 +133,7 @@
     {
       "name": "🇬🇧 Keasbey Scholarship",
       "description": "Periodically Cornell, Harvard, Dartmouth, Brown, Haverford, Middlebury, Amherst, Bowdoin, Swarthmore, Wesleyan, and Yale Universities are invited to submit two nominations each to the Keasbey Scholarship competition. One award will be granted. The award provides support for two years of graduate work at one of four British \"Universities\": Oxford, Cambridge, University of Edinburgh, or University College of Wales at Aberystwyth. ",
-      "url": "\"http\"://keasbeyfoundation.org/eligibility.php",
+      "url": "http://keasbeyfoundation.org/eligibility.php",
       "dueDate": "10/10/2025",
       "value": 1,
       "tags": [
@@ -153,7 +153,7 @@
     {
       "name": "🇺🇸 Udall Scholarship",
       "description": "The Udall Scholarship Program honors the public service legacies of Morris K. Udall, Congressman from Arizona (1961-1991), and Stewart L. Udall, Secretary of the Interior (1961-1969). The scholarship covers eligible expenses for tuition, fees, books, and room and board, up to a maximum of $7,000. Juniors are eligible for one year of support; sophomores may be renominated during their junior year and compete for a second year of support. Approximately 60 scholarships are awarded each year.",
-      "url": "\"http\"://udall.gov/",
+      "url": "http://udall.gov/",
       "dueDate": "03/01/2025",
       "value": 1,
       "tags": [
@@ -174,7 +174,7 @@
     {
       "name": "🇺🇸 🌐 🗽 Charles Rangel Fellowship",
       "description": "Diversity fellowship for a Masters and track to the United States Foreign Diplomatic Service",
-      "url": "\"http\"://rangelprogram.org/",
+      "url": "http://rangelprogram.org/",
       "dueDate": "09/15/2025",
       "value": 1,
       "tags": [
@@ -186,7 +186,7 @@
     {
       "name": "🇺🇸 🌐 Charles Rangel Undergraduate Summer Enrichment Program",
       "description": "Six-week summer program for undergraduate students intersted in international affairs.",
-      "url": "\"http\"://rangelprogram.org/",
+      "url": "http://rangelprogram.org/",
       "dueDate": "02/01/2025",
       "value": 1,
       "tags": [
@@ -208,7 +208,7 @@
     {
       "name": "🌐 Fulbright Scholarship",
       "description": "The Fulbright U.S. Student Program provides grants for individually designed study/research projects or for English Teaching Assistantships. The program  gives  recent graduates, Master's candidates, Doctoral candidates, and young professionals opportunities for personal development through an international experience, while allowing them to engage in cultural exchange through direct contact with a wide cross section of individuals in the host country. Applications are welcome from all fields of study in all disciplines.",
-      "url": "\"http\"://us.fulbrightonline.org/",
+      "url": "http://us.fulbrightonline.org/",
       "dueDate": "10/10/2025",
       "value": 1,
       "tags": [
@@ -228,7 +228,7 @@
     {
       "name": "🌐 Fulbright English Teaching Assistant",
       "description": "Teach English abroad.",
-      "url": "\"http\"://us.fulbrightonline.org/about/types-of-grants/english-teaching-assistant-grants",
+      "url": "http://us.fulbrightonline.org/about/types-of-grants/english-teaching-assistant-grants",
       "dueDate": "10/10/2025",
       "value": 1,
       "tags": [
@@ -249,7 +249,7 @@
     {
       "name": "🇺🇸 🌐 🗣 Critical Language Scholarship",
       "description": "Intensive overseas language programs sponsored by the U.S. Department of State.",
-      "url": "\"http\"://www.clscholarship.org/",
+      "url": "http://www.clscholarship.org/",
       "dueDate": "11/01/2025",
       "value": 1,
       "tags": [
@@ -297,7 +297,7 @@
     {
       "name": "🌐 🧑‍🏫 🗣 Fulbright Hays Fellowship for Non-Western Languages",
       "description": "Department of Education Fellowship for educators, administrators, pre and post doctoral students. Focused on research and training overseas on non-Western language and area studies.",
-      "url": "\"http\"://eca.state.gov/fulbright/fulbright-programs/program-summaries/fulbright-hays-program",
+      "url": "http://eca.state.gov/fulbright/fulbright-programs/program-summaries/fulbright-hays-program",
       "dueDate": "02/01/2025",
       "value": 1,
       "tags": [
@@ -341,7 +341,7 @@
     {
       "name": "🌐 🎵 Fulbright-mtvU awards",
       "description": "Research on international music culture",
-      "url": "\"http\"://us.fulbrightonline.org/fulbright-mtvu-awards",
+      "url": "http://us.fulbrightonline.org/fulbright-mtvu-awards",
       "dueDate": "03/01/2025",
       "value": 1,
       "tags": [
@@ -591,7 +591,7 @@
     {
       "name": "🇺🇸 🗽 ⚖️ CORO Fellowship",
       "description": "Provides funding for one year participating with a cohort of like-minded recent graduates who are committed to positive social change and active leadership.",
-      "url": "\"http\"://www.corofellowship.org/apply-today/",
+      "url": "http://www.corofellowship.org/apply-today/",
       "dueDate": "01/01/2025",
       "value": 1,
       "tags": [
